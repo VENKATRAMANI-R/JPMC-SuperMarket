@@ -1,0 +1,74 @@
+/* Header row */
+.cart-header {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr; /* ✅ 5 columns now */
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffecd2, #fcb69f);
+  padding: 14px;
+  border-radius: 10px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Each cart row */
+.cart-row {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr; /* ✅ match header */
+  padding: 14px;
+  margin-top: 8px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.cart-row:hover {
+  background-color: #ffe5d9;
+  transform: scale(1.02);
+}
+
+/* Text styling */
+.cart-row div, .cart-header p {
+  text-align: center;
+  font-size: 1rem;
+  color: #444;
+}
+h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+/* Delete button styling */
+.delete-btn {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #e85c50;
+  transform: scale(1.05);
+}
+
+
+.message-box {
+  background-color: #fff0f0;   
+  border: 1px solid #ff0000;   
+  color: #ff0000;              
+  padding: 12px 16px;    
+  border-radius: 6px;     
+  margin: 10px 0;        
+  font-size: 14px;             
+  font-weight: 500;      
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+  animation: fadeIn 0.3s ease-in-out;   
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
