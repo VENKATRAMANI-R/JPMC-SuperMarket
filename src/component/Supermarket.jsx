@@ -60,7 +60,7 @@ function Supermarket() {
           </div>
           <div className="card-content">
             <h3>{item.itemName}</h3>
-            <p>${item.price}</p>
+            <p>₹{item.price}</p>
           </div>
           <div className='card-action'>
             <button onClick={() => addToCart(item)}>Add To Cart</button>
