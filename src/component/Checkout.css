@@ -42,7 +42,7 @@
 }
 
 .checkout-details span {
-  display: flex;              /* align label and value side by side */
+  display: flex;              
   justify-content: space-between;
   margin: 10px 0;
   font-size: 1.1rem;
@@ -54,8 +54,8 @@
 }
 
 .checkout-details span:last-child {
-  font-weight: bold;          /* highlight Grand Total */
+  font-weight: bold;          
   font-size: 1.2rem;
-  color: #ff6f61;             /* accent color */
+  color: #ff6f61;            
 }
 

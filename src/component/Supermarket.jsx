@@ -31,10 +31,10 @@ function Supermarket() {
       }
       const data = await response.json();
       console.log('Item added to cart:', data);
-      setMsg("Item added successfully!");
+      setMsg(`${item.itemName} added to cart successfully!`);
             setTimeout(()=>{
                 setMsg("");
-            },5000)
+            },2000)
       
     }
     catch (error){
@@ -42,7 +42,7 @@ function Supermarket() {
       setMsg("Failed to add item to cart");
             setTimeout(()=>{
                 setMsg("");
-            },5000)
+            },2000)
     }
   };
   if(items.length ===0){

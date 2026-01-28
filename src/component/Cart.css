@@ -1,7 +1,7 @@
-/* Header row */
+
 .cart-header {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr; /* ✅ 5 columns now */
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr; 
   font-weight: bold;
   background: linear-gradient(90deg, #ffecd2, #fcb69f);
   padding: 14px;
@@ -11,10 +11,10 @@
   letter-spacing: 1px;
 }
 
-/* Each cart row */
+
 .cart-row {
   display: grid;
-  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr; /* ✅ match header */
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
   padding: 14px;
   margin-top: 8px;
   border-radius: 10px;
@@ -27,7 +27,7 @@
   transform: scale(1.02);
 }
 
-/* Text styling */
+
 .cart-row div, .cart-header p {
   text-align: center;
   font-size: 1rem;
@@ -38,7 +38,7 @@ h3 {
   color: #333;
   margin-bottom: 20px;
 }
-/* Delete button styling */
+
 .delete-btn {
   background-color: #ff6f61;
   color: white;
@@ -66,6 +66,9 @@ h3 {
   font-weight: 500;      
   box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
   animation: fadeIn 0.3s ease-in-out;   
+  top: 20px;
+  right: 20px; 
+  z-index: 8999; 
 }
 
 @keyframes fadeIn {

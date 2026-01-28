@@ -4,7 +4,7 @@ import './Cart.css';
 function Cart(){
 
     const cartURL = "http://localhost:8080/supermarket/cart";
-    const cartItemRemoveURL = "http://localhost:8080/supermarket/cart/remove/";
+    // const cartItemRemoveURL = "http://localhost:8080/supermarket/cart/remove/";
     const [cart, setCart] = useState([]);
     const [msg,setMsg] = useState("");
     useEffect(()=>{
@@ -18,7 +18,7 @@ function Cart(){
         fetch(`http://localhost:8080/supermarket/cart/remove/${id}`, { method: "DELETE" })
             .then(() => console.log("Deleted from backend"))
             .catch((err) => console.error(err));
-        setMsg("Item deleted successfully!");
+        setMsg(`${cart.find(item => item.id === id).item.itemName} deleted successfully!`);
             setTimeout(()=>{
                 setMsg("");
             },5000)
