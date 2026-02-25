@@ -53,8 +53,8 @@ function Additems() {
                 <input type="text" placeholder="Item Name" value={itemName} onChange={(e)=>setItemName(e.target.value)} required/>
                 <input type="text" placeholder="Image URL" value={imageUrl} onChange={(e)=>setImageUrl(e.target.value)}/>
                 <input type="number" placeholder="Price" value={price} onChange={(e)=>setPrice(e.target.value)} required/>
-                <button onClick={clearInputs}>Clear</button>
                 <button type="submit">Add Item</button>
+                <button onClick={clearInputs}>Clear</button>
             </form>
         </>
     );

@@ -5,6 +5,7 @@ function Checkout(){
     const [cart, setCart] =react.useState([]);
     const CheckoutURL='http://localhost:8080/supermarket/checkout';
     const CartURL = "http://localhost:8080/supermarket/cart";
+    const CheckoutPDF = "http://localhost:8080/supermarket/receipt";
     useEffect(()=>{
         fetch(CheckoutURL)
         .then(response => response.json())
@@ -19,6 +20,34 @@ function Checkout(){
         .then(data=>setCart(data))
         .catch(err=>console.log(err));
     },[])
+    
+const handleProceedToPay = async () => {
+    try {
+      const res = await fetch(CheckoutPDF); // or an absolute URL
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      // Convert to a Blob (application/pdf)
+      const blob = await res.blob();
+
+      // Create a temporary object URL and open in a new tab
+      const url = URL.createObjectURL(blob);
+      window.open(url, "_blank", "noopener,noreferrer");
+
+      // Optional: if you want to download instead of open:
+      // const a = document.createElement("a");
+      // a.href = url;
+      // a.download = "checkout.pdf";
+      // document.body.appendChild(a);
+      // a.click();
+      // a.remove();
+
+      // Revoke after a short delay (allow the tab/download to start)
+      setTimeout(() => URL.revokeObjectURL(url), 10_000);
+    } catch (err) {
+      console.error("Failed to fetch PDF:", err);
+    }
+  };
+
     console.log("Cartdetails",cart);
     console.log("checkout details", checkout);
     if(cart.length ===0){
@@ -60,6 +89,9 @@ function Checkout(){
   <span><p>Sub Total : </p><p>&nbsp;₹{checkout[0]}</p></span>
   <span><p>GST : </p><p>&nbsp;₹{checkout[1]}</p></span>
   <span><p>Grand Total : </p><p>&nbsp;₹{checkout[2]}</p></span>
+</div>
+<div className="checkout">
+ <button className="checkout-button" onClick={handleProceedToPay}>Proceed to Pay</button>
 </div>
 
         </>
