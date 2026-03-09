@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import './AddItem.css';
 function Additems() {
-    const addItemURL = "http://localhost:8080/supermarket/items";
+    const addItemURL = "http://localhost:5000/supermarket/items";
     const [itemName,setItemName] = useState("");
     const [imageUrl,setImageUrl] = useState("");
     const [price,setPrice] = useState("");

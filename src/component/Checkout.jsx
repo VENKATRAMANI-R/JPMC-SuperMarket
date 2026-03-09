@@ -3,9 +3,10 @@ import './Checkout.css';
 function Checkout(){
     const [checkout, setCheckout] = react.useState([]);
     const [cart, setCart] =react.useState([]);
-    const CheckoutURL='http://localhost:8080/supermarket/checkout';
-    const CartURL = "http://localhost:8080/supermarket/cart";
-    const CheckoutPDF = "http://localhost:8080/supermarket/receipt";
+    const CheckoutURL='http://localhost:5000/supermarket/checkout';
+    const CartURL = "http://localhost:5000/supermarket/cart";
+    const CheckoutPDF = "http://localhost:5000/supermarket/receipt";
+    const deleteCartURL = "http://localhost:5000/supermarket/cart/deleteAllItems";
     useEffect(()=>{
         fetch(CheckoutURL)
         .then(response => response.json())
@@ -23,7 +24,7 @@ function Checkout(){
     
 const handleProceedToPay = async () => {
     try {
-      const res = await fetch(CheckoutPDF); // or an absolute URL
+      const res = await fetch(CheckoutPDF); 
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
       // Convert to a Blob (application/pdf)
@@ -32,16 +33,8 @@ const handleProceedToPay = async () => {
       // Create a temporary object URL and open in a new tab
       const url = URL.createObjectURL(blob);
       window.open(url, "_blank", "noopener,noreferrer");
-
-      // Optional: if you want to download instead of open:
-      // const a = document.createElement("a");
-      // a.href = url;
-      // a.download = "checkout.pdf";
-      // document.body.appendChild(a);
-      // a.click();
-      // a.remove();
-
-      // Revoke after a short delay (allow the tab/download to start)
+      const delRes = await fetch(deleteCartURL, { method: "DELETE" });
+      console.log(delRes);
       setTimeout(() => URL.revokeObjectURL(url), 10_000);
     } catch (err) {
       console.error("Failed to fetch PDF:", err);
