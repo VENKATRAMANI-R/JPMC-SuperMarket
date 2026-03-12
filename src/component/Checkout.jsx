@@ -3,10 +3,10 @@ import './Checkout.css';
 function Checkout(){
     const [checkout, setCheckout] = react.useState([]);
     const [cart, setCart] =react.useState([]);
-    const CheckoutURL='http://localhost:5000/supermarket/checkout';
-    const CartURL = "http://localhost:5000/supermarket/cart";
-    const CheckoutPDF = "http://localhost:5000/supermarket/receipt";
-    const deleteCartURL = "http://localhost:5000/supermarket/cart/deleteAllItems";
+    const CheckoutURL='http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/checkout';
+    const CartURL = "http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/cart";
+    const CheckoutPDF = "http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/receipt";
+    const deleteCartURL = "http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/cart/deleteAllItems";
     useEffect(()=>{
         fetch(CheckoutURL)
         .then(response => response.json())

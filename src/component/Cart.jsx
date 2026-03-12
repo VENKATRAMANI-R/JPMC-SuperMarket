@@ -3,8 +3,8 @@ import {useEffect, useState} from "react";
 import './Cart.css';
 function Cart(){
 
-    const cartURL = "http://localhost:5000/supermarket/cart";
-    // const cartItemRemoveURL = "http://localhost:5000/supermarket/cart/remove/";
+    const cartURL = "http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/cart";
+    // const cartItemRemoveURL = "http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/cart/remove/";
     const [cart, setCart] = useState([]);
     const [msg,setMsg] = useState("");
     useEffect(()=>{
@@ -15,7 +15,7 @@ function Cart(){
     },[])
     const handleDelete = (id) => {
         setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-        fetch(`http://localhost:5000/supermarket/cart/remove/${id}`, { method: "DELETE" })
+        fetch(`http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/cart/remove/${id}`, { method: "DELETE" })
             .then(() => console.log("Deleted from backend"))
             .catch((err) => console.error(err));
         setMsg(`${cart.find(item => item.id === id).item.itemName} deleted successfully!`);

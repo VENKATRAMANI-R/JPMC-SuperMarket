@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Supermarket.css';
-const URL = 'http://localhost:5000/supermarket/items';
+const URL = 'http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/items';
 
 function Supermarket() {
   const [items, setItems] = useState([]);
@@ -15,7 +15,7 @@ function Supermarket() {
     try{
       // item.quantity = (item.quantity!=null) ? item.quantity + 1 : 1;
       const nos = 1;
-      const response = await fetch(`http://localhost:5000/supermarket/cart/${item.itemNo}/${nos}`, {
+      const response = await fetch(`http://supermarket-backend-env.eba-2nqup6kj.us-east-1.elasticbeanstalk.com/supermarket/cart/${item.itemNo}/${nos}`, {
         method: 'POST',
         headers :{
           "content-type" : "application/json"
